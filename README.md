@@ -35,10 +35,15 @@ Example config.json:
 ```
 {
     "WaitSeconds": 1800,
+    "StartupCheck" : true,
+    "Log" : true,    
     "Miners": [
-        {   "Name": "machine 1", "Pin": "40", "Ip": "192.168.0.100", "Info": "R9 290's"  },
-        {   "Name": "machine 2", "Pin": "38", "Ip": "192.168.0.101", "Info": "RX480's"   }
-    ]
+        {   "Name": "machine 1", "Pin": "40", "Ip": "192.168.0.100", "Info": "R9 290's"  },    
+        {   "Name": "machine 2", "Pin": "38", "Ip": "192.168.0.101", "Info": "RX480's"   }      
+    ],
+    "Pushover": false,
+    "PushoverToken": "your access toke",
+    "PushoverUser": "your user token"
 }
 ```
 
