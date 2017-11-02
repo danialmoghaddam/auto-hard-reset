@@ -42,7 +42,7 @@ Example config.json:
         {   "Name": "machine 2", "Pin": "38", "Ip": "192.168.0.101", "Info": "RX480's"   }      
     ],
     "Pushover": false,
-    "PushoverToken": "your access toke",
+    "PushoverToken": "your access token",
     "PushoverUser": "your user token"
 }
 ```
