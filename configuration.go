@@ -17,10 +17,13 @@ type MinerConfig struct {
 
 //ConfigurationFile struct to parse config.json
 type ConfigurationFile struct {
-	WaitSeconds  int           // Period of the timer checks in seconds
-	StartupCheck bool          // Check miners on startup
-	Log          bool          //Enable or disable logging
-	Miners       []MinerConfig // An array of the
+	WaitSeconds   int           // Period of the timer checks in seconds
+	StartupCheck  bool          // Check miners on startup
+	Log           bool          //Enable or disable logging
+	Miners        []MinerConfig // An array of the
+	Pushover      bool
+	PushoverToken string
+	PushoverUser  string
 }
 
 //ReadConfig - read and parse the config file
@@ -52,6 +55,12 @@ func ReadConfig() (configFile ConfigurationFile) {
 
 	log.Notice("Timer (time in seconds):", configFile.WaitSeconds)
 	log.Notice("Found miner configurations:", len(configFile.Miners))
+
+	if configFile.Pushover == true {
+		log.Notice("Pushover notification is ENABLED")
+		log.Notice("Pushover Token:", configFile.PushoverToken)
+		log.Notice("Pushover User:", configFile.PushoverUser)
+	}
 
 	return
 }
