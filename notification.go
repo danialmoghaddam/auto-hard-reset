@@ -8,18 +8,16 @@ import (
 
 //Notify using Pushover notification
 func Notify(r *Rig) {
-	configFile := ReadConfig()
-
-	if configFile.Pushover == true {
+	if Config.Pushover == true {
 		identity := pushover.Authenticate(
-			configFile.PushoverToken,
-			configFile.PushoverUser,
+			Config.PushoverToken,
+			Config.PushoverUser,
 		)
 
 		message := fmt.Sprint("Force rebooting ", r.name)
 		sent := pushover.Notify(identity, message)
 		if !sent {
-			log.Error("[!] notification failed.")
+			log.Error("[!]Pushover notification failed.")
 		} else {
 			log.Notice("Pusherover notification sent")
 		}
